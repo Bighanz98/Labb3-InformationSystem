@@ -1,0 +1,41 @@
+﻿@model Driver
+
+@{
+    ViewData["Title"] = "Ta bort Förare";
+}
+
+<h2>Ta bort Förare</h2>
+
+<div>
+    <h4>Är du säker på att du vill ta bort denna förare?</h4>
+    <div class="form-group">
+        <label>Namn:</label>
+        <p>@Model.DriverName</p>
+    </div>
+
+    <div class="form-group">
+        <label>Registreringsnummer:</label>
+        <p>@Model.CarReg</p>
+    </div>
+
+    <div class="form-group">
+        <label>Noteringsdatum:</label>
+        <p>@Model.NoteDate.ToShortDateString()</p>
+    </div>
+
+    <div class="form-group">
+        <label>Beskrivning:</label>
+        <p>@Model.NoteDescription</p>
+    </div>
+
+    <div class="form-group">
+        <label>Ansvarig medarbetare:</label>
+        <p>@Model.ResponsibleEmployee</p>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="DriverID" />
+        <button type="submit" class="btn btn-danger">Ta bort</button>
+        <a asp-action="Index" class="btn btn-secondary">Avbryt</a>
+    </form>
+</div>

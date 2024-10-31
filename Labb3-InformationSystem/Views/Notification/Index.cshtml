@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Labb3_InformationSystem.Models.Event>
+
+@{
+    ViewData["Title"] = "Notifikationer";
+
+    Layout = "_Layout";
+}
+
+<h2>Notifikationer</h2>
+
+@if (!Model.Any())
+
+{
+    <p>Inga nya notifikationer att visa.</p>
+}
+
+else
+
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Beskrivning</th>
+                <th>Förare</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var eventItem in Model)
+
+            {
+                <tr>
+                    <td>@eventItem.EventDate.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@eventItem.Description</td>
+                    <td>@eventItem.Driver?.DriverName</td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,56 @@
+﻿@model Driver
+
+<h2>Lägg till ny förare</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="DriverName" class="control-label"></label>
+        <input asp-for="DriverName" class="form-control" />
+        <span asp-validation-for="DriverName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CarReg" class="control-label"></label>
+        <input asp-for="CarReg" class="form-control" />
+        <span asp-validation-for="CarReg" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NoteDate" class="control-label"></label>
+        <input asp-for="NoteDate" type="date" class="form-control" />
+        <span asp-validation-for="NoteDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NoteDescription" class="control-label"></label>
+        <textarea asp-for="NoteDescription" class="form-control"></textarea>
+        <span asp-validation-for="NoteDescription" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ResponsibleEmployee" class="control-label"></label>
+        <input asp-for="ResponsibleEmployee" class="form-control" />
+        <span asp-validation-for="ResponsibleEmployee" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BeloppUt" class="control-label"></label>
+        <input asp-for="BeloppUt" type="number" step="0.01" class="form-control" />
+        <span asp-validation-for="BeloppUt" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BeloppIn" class="control-label"></label>
+        <input asp-for="BeloppIn" type="number" step="0.01" class="form-control" />
+        <span asp-validation-for="BeloppIn" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Spara</button>
+    <a asp-action="Index" class="btn btn-secondary">Tillbaka</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

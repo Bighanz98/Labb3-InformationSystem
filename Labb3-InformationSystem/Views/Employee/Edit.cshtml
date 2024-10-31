@@ -1,0 +1,26 @@
+﻿@model Labb3_InformationSystem.Models.Employee
+
+@{
+    ViewData["Title"] = "Redigera Anställd";
+}
+
+<h2>Redigera Anställd</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="EmployeeID" />
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Spara</button>
+    <a asp-action="Index" class="btn btn-secondary">Tillbaka</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

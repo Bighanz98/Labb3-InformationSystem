@@ -1,0 +1,50 @@
+﻿@model Driver
+
+@{
+    ViewData["Title"] = "Förare Detaljer";
+}
+
+<h2>Detaljer för Förare</h2>
+
+<div class="details-container">
+    <div class="form-group">
+        <label>Namn:</label>
+        <p>@Model.DriverName</p>
+    </div>
+
+    <div class="form-group">
+        <label>Registreringsnummer:</label>
+        <p>@Model.CarReg</p>
+    </div>
+
+    <div class="form-group">
+        <label>Noteringsdatum:</label>
+        <p>@Model.NoteDate.ToShortDateString()</p>
+    </div>
+
+    <div class="form-group">
+        <label>Beskrivning:</label>
+        <p>@Model.NoteDescription</p>
+    </div>
+
+    <div class="form-group">
+        <label>Ansvarig medarbetare:</label>
+        <p>@Model.ResponsibleEmployee</p>
+    </div>
+
+    <div class="form-group">
+        <label>Belopp Ut:</label>
+        <p>@Model.BeloppUt.ToString("C")</p>
+    </div>
+
+    <div class="form-group">
+        <label>Belopp In:</label>
+        <p>@Model.BeloppIn.ToString("C")</p>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DriverID" class="btn btn-warning">Redigera</a>
+    <a asp-action="Delete" asp-route-id="@Model.DriverID" class="btn btn-danger">Ta bort</a>
+    <a asp-action="Index" class="btn btn-secondary">Tillbaka</a>
+</div>

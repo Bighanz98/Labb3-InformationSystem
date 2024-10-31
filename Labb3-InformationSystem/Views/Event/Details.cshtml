@@ -1,0 +1,18 @@
+﻿@model Labb3_InformationSystem.Models.Event
+
+@{
+    ViewData["Title"] = "Händelsedetaljer";
+}
+
+<h2>Händelsedetaljer</h2>
+
+<div>
+    <h5>Beskrivning</h5>
+    <p>@Model.Description</p>
+    <h5>Datum</h5>
+    <p>@Model.EventDate.ToString("dd/MM/yyyy")</p>
+    <h5>Förare</h5>
+    <p>@Model.Driver.DriverName</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Tillbaka</a>
